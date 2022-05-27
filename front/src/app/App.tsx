@@ -1,13 +1,13 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { Route, Routes } from 'react-router-dom';
+import ButtonAppBar from './components/ButtonAppBar/ButtonAppBar';
 
-const App = () : JSX.Element => (
-  <div className="App">
-    <h1>Welcome to React Router!</h1>
+/*
     <Routes>
-      { /* <Route path="/" element={<Home />} /> */}
-    </Routes>
-  </div>
-);
+      <Route path="/" element={<Home />} />
+    </Routes> */
+
+const App = () : JSX.Element => (<ButtonAppBar />);
 
 export default App;
