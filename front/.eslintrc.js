@@ -32,6 +32,7 @@ module.exports = {
       },
     ],
     semi: ['error', 'always'],
+    'import/no-unresolved': 'off',
   },
   globals: {
     JSX: true,
