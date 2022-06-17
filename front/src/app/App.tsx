@@ -1,13 +1,29 @@
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
 import { Route, Routes } from 'react-router-dom';
+import { CssBaseline, Grid } from '@mui/material';
+import AddNewItemPage from './pages/addNewItemPage/AddNewItemPage';
 import ButtonAppBar from './components/ButtonAppBar/ButtonAppBar';
 
-/*
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes> */
+const App = () : JSX.Element => (
+  <>
+    <CssBaseline />
 
-const App = () : JSX.Element => (<ButtonAppBar />);
+    <Grid container spacing={5}>
+      <Grid container item>
+        <ButtonAppBar />
+      </Grid>
+
+      <Grid
+        container
+        item
+        justifyContent="center"
+      >
+        <Routes>
+          <Route path="/" element={<AddNewItemPage />} />
+        </Routes>
+      </Grid>
+    </Grid>
+  </>
+);
 
 export default App;
