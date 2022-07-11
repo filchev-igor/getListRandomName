@@ -35,7 +35,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'padding-line-between-statements': [
       'error',
-      { blankLine: 'always', prev: '*', next: '*' },
+      { blankLine: 'always', prev: ['const'], next: ['return', 'export'] },
     ],
   },
   globals: {
