@@ -33,6 +33,10 @@ module.exports = {
     ],
     semi: ['error', 'always'],
     'import/no-unresolved': 'off',
+    'padding-line-between-statements': [
+      'error',
+      { blankLine: 'always', prev: '*', next: '*' },
+    ],
   },
   globals: {
     JSX: true,
