@@ -7,10 +7,16 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import FontDownloadIcon from '@mui/icons-material/FontDownload';
-import { Grid, IconButton, Tooltip } from '@mui/material';
+import {
+  Grid, IconButton, Tooltip,
+} from '@mui/material';
+import useDayMode from '../../hooks/useDayMode';
 
 const AppBarIcons = () : JSX.Element => {
-  const isLightMode = true;
+  const {
+    hasDayMode,
+    setHasDayMode,
+  } = useDayMode();
 
   const icons = useMemo(() => [
     {
@@ -34,20 +40,23 @@ const AppBarIcons = () : JSX.Element => {
       ariaLabel: 'link to settings page',
     },
     {
-      icon: isLightMode ? <DarkModeIcon /> : <LightModeIcon />,
+      icon: hasDayMode ? <DarkModeIcon /> : <LightModeIcon />,
       id: uuidv4(),
-      ariaLabel: isLightMode ? 'select dark mode' : 'select light mode',
+      ariaLabel: hasDayMode ? 'select dark mode' : 'select light mode',
+      onClick: () => setHasDayMode(!hasDayMode),
     },
     {
       icon: <FontDownloadIcon />,
       id: uuidv4(),
       ariaLabel: 'change font',
     },
-  ], []);
+  ], [hasDayMode]);
 
   return (
     <>
-      {icons.map(({ icon, id, ariaLabel }) => (
+      {icons.map(({
+        icon, id, ariaLabel, onClick,
+      }) => (
         <Grid
           item
           key={id}
@@ -61,6 +70,7 @@ const AppBarIcons = () : JSX.Element => {
               size="large"
               color="secondary"
               aria-label={ariaLabel}
+              onClick={onClick}
             >
               {icon}
             </IconButton>
